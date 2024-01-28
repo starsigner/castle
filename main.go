@@ -4,23 +4,23 @@ import "fmt"
 
 // define chess pieces 
 const (
-	E = iota // empty
-	WP  // white pawn
-	WR // white rook
-	WN // white knight
-	WB // white bishop
-	WQ // white queen
-	WK // white king
-	BP // black pawn
-	BR  // black rook
-	BN  // black knight
-	BB  // black bishop
-	BQ // black queen
-	BK  // black king
+	E = "E" // empty
+	WP = "WP"  // white pawn
+	WR = "WR"  // white rook
+	WN = "WN" // white knight
+	WB = "WB" // white bishop
+	WQ = "WQ" // white queen
+	WK = "WK" // white king
+	BP = "BP" // black pawn
+	BR = "BR" // black rook
+	BN = "BN" // black knight
+	BB = "BB" // black bishop
+	BQ = "BQ" // black queen
+	BK = "BK" // black king
 )
 
 // define a 2D array representing the initial chessboard
-var initialBoard = [][]int{
+var initialBoard = [][]string{
     {WR, WN, WB, WQ, WK, WB, WN, WR},
     {WP, WP, WP, WP, WP, WP, WP, WP},
     {E, E, E, E, E, E, E, E},
@@ -35,7 +35,7 @@ var initialBoard = [][]int{
 func PrintBoard() {
     for _, row := range initialBoard {
         for _, piece := range row {
-            fmt.Printf("%2d ", piece)
+            fmt.Printf("%s ", piece)
         }
         fmt.Println()
     }
@@ -56,16 +56,18 @@ func MakeMove() {
     startPos_split := []rune(startPos)
     X_coord_start := startPos_split[0]
     Y_coord_start := startPos_split[1]
+    fmt.Print(X_coord_start)
+    fmt.Print(Y_coord_start)
 
     // get piece from startPos
-    var piece int
+    var piece string
 
     if X_coord_start == 'E' {
         X_coord_start = 4 
     }
 
     piece = initialBoard[X_coord_start][Y_coord_start]
-    Print(piece)
+    fmt.Print(piece)
 
     // get X and Y coordinates (endPos)
     endPos_split := []rune(endPos)
