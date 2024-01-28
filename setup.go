@@ -21,7 +21,7 @@ const (
 
 // define a 2D array representing the initial chessboard
 initialBoard = [][]int{
-	{WR, WN, WB, WQ, WK, WB, WN, WR},
+    {WR, WN, WB, WQ, WK, WB, WN, WR},
     {WP, WP, WP, WP, WP, WP, WP, WP},
     {E, E, E, E, E, E, E, E},
     {E, E, E, E, E, E, E, E},
@@ -33,10 +33,10 @@ initialBoard = [][]int{
 
 // Print the initial chessboard
 func PrintBoard() {
-	for _, row := range initial_board {
-		for _, piece := range row {
-			fmt.Printf("%2d ", piece)
-		}
-		fmt.Println()
-	}
+    for _, row := range initial_board {
+        for _, piece := range row {
+            fmt.Printf("%2d ", piece)
+        }
+        fmt.Println()
+    }
 }
