@@ -2,7 +2,6 @@ package main
 
 import "fmt"
 
-
 // define chess pieces 
 const (
 	E = iota // empty
@@ -34,10 +33,10 @@ initialBoard = [][]int{
 
 // Print the initial chessboard
 func PrintBoard() {
-for _, row := range initial_board {
-	for _, piece := range row {
-		fmt.Printf("%2d ", piece)
+	for _, row := range initial_board {
+		for _, piece := range row {
+			fmt.Printf("%2d ", piece)
+		}
+		fmt.Println()
 	}
-	fmt.Println()
-}
 }
