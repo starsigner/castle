@@ -19,7 +19,7 @@ const (
 	BK = "BK" // black king
 )
 
-// define a 2D array representing the (initial) chessboard
+// define a 2D array representation of the (initial) chessboard
 var board = [8][8]string{
 	{WR, WN, WB, WQ, WK, WB, WN, WR},
 	{WP, WP, WP, WP, WP, WP, WP, WP},
@@ -31,15 +31,18 @@ var board = [8][8]string{
 	{BR, BN, BB, BQ, BK, BB, BN, BR},
 }
 
-// // Print the initial chessboard
-// func PrintBoard() {
-// 	for _, row := range initialBoard {
-// 		for _, piece := range row {
-// 			fmt.Printf("%v ", piece)
-// 		}
-// 		fmt.Println()
-// 	}
-// }
+// Print the chessboard
+func PrintBoard() {
+	for _, row := range board {
+		for _, piece := range row {
+			fmt.Printf("%v ", piece)
+			if piece == E {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println()
+	}
+}
 
 // var startPos string
 // var endPos string
@@ -78,7 +81,6 @@ var board = [8][8]string{
 // }
 
 func main() {
-	//PrintBoard()
-	fmt.Println("hi")
+	PrintBoard()
 	// MakeMove()
 }
