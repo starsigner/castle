@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 // define users in two-player game (temporary)
 const userA = "Yin"
@@ -31,16 +35,16 @@ const (
 )
 
 // define mapping between letter and column
-const (
-	A = iota
-	B
-	C
-	D
-	E
-	F
-	G
-	H
-)
+var letterToColumnIndex = map[string]int{
+	"A": 0,
+	"B": 1,
+	"C": 2,
+	"D": 3,
+	"E": 4,
+	"F": 5,
+	"G": 6,
+	"H": 7,
+}
 
 // define a 2D array representation of the (initial) chessboard
 var board = [8][8]string{
@@ -106,7 +110,19 @@ func PrintBoard() {
 // }
 
 func makeMove(user string) {
-	fmt.Printf("Take your turn... %v\n", user)
+	fmt.Println("What piece would you like to move?")
+	var pieceCoordinates string
+	fmt.Scan(&pieceCoordinates)
+	fmt.Println(pieceCoordinates)
+	pieceCoords_split := strings.Split(pieceCoordinates, "")
+	fmt.Println(pieceCoords_split)
+	columnCoord := letterToColumnIndex[pieceCoords_split[0]]
+	rowCoord, err := strconv.Atoi(pieceCoords_split[1])
+	if err == nil {
+		// do stuff
+	}
+	piece := board[columnCoord][rowCoord]
+	fmt.Println(piece)
 }
 
 // TEMP: delete after
