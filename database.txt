@@ -1,0 +1,16 @@
+users
+    - name
+    - last name 
+    - stats 
+    - foreign key: chess_game 
+
+chess_game 
+    - game ID 
+
+user_chess_game
+    - colour 
+    - pieces won
+    - foreign key: user, chess_game
+    
+
+

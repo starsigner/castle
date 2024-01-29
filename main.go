@@ -5,6 +5,8 @@ import "fmt"
 // define users in two-player game (temporary)
 const userA = "Yin"
 const userB = "Yang"
+const userAColour = "white"
+const userBColour = "black"
 
 // define checkmate, stalemate, and quit status
 var checkmateStatus = false
@@ -62,10 +64,10 @@ func PrintBoard() {
 	}
 }
 
-// randomly assign each user either white or black
-func AssignColours() {
-	// do stuff here
-}
+// // randomly assign each user either white or black
+// func assignColours(userA string, userB string) {
+// 	// do stuff here
+// }
 
 // var startPos string
 // var endPos string
@@ -103,12 +105,32 @@ func AssignColours() {
 // 	fmt.Print(Y_coord_end)
 // }
 
+func makeMove(user string) {
+	fmt.Printf("Take your turn... %v\n", user)
+}
+
+// TEMP: delete after
+var turns = 10
+
 func main() {
-	AssignColours()
-	// loop repeatedly until checkmate, stalemate or user resignation
-	for {
+	var currTurn = userA
+	// assignColours(userA, userB)
+	// loop infinitely until checkmate, stalemate or user resignation
+	for turns > 5 {
+
+		// alternate making moves between players
+		if currTurn == userA {
+			makeMove(userA)
+			currTurn = userB
+		}
+
+		if currTurn == userB {
+			makeMove(userB)
+			currTurn = userA
+		}
+
+		turns = turns - 1
 		// if end condition met, exit loop & game
 		// else: alternate userA and userB MakeMove
-		PrintBoard()
 	}
 }
