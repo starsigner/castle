@@ -110,10 +110,14 @@ func PrintBoard() {
 // }
 
 func makeMove(user string) {
+
+	// ask the user what piece to move
 	fmt.Println("What piece would you like to move?")
 	var pieceCoordinates string
 	fmt.Scan(&pieceCoordinates)
 	fmt.Println(pieceCoordinates)
+
+	// get piece from coordinates
 	pieceCoords_split := strings.Split(pieceCoordinates, "")
 	fmt.Println(pieceCoords_split)
 	columnCoord := letterToColumnIndex[pieceCoords_split[0]]
@@ -123,12 +127,34 @@ func makeMove(user string) {
 	}
 	piece := board[columnCoord][rowCoord]
 	fmt.Println(piece)
+
+	// ask the user where they would like to move it
+	fmt.Println("Where would you like to move it?")
+	var moveCoordinates string
+	fmt.Scan(&moveCoordinates)
+	fmt.Println(moveCoordinates)
+
+	// get exact move coordinates
+	moveCoords_split := strings.Split(moveCoordinates, "")
+	columnCoord_move := letterToColumnIndex[moveCoords_split[0]]
+	rowCoord_move, err := strconv.Atoi(moveCoords_split[1])
+	if err == nil {
+		// do stuff
+	}
+
+	// assuming valid move, move piece
+	board[columnCoord][rowCoord] = EM
+	board[rowCoord_move][columnCoord_move] = piece
+
+	PrintBoard()
+
 }
 
 // TEMP: delete after
 var turns = 10
 
 func main() {
+	PrintBoard()
 	var currTurn = userA
 	// assignColours(userA, userB)
 	// loop infinitely until checkmate, stalemate or user resignation
