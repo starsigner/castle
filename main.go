@@ -34,6 +34,16 @@ const (
 	BK = "BK" // black king
 )
 
+// define collection of white pieces
+var whitePieces = [6]string{
+	WP, WR, WN, WB, WQ, WK,
+}
+
+// define collection of black pieces
+var blackPieces = [6]string{
+	BP, BR, BN, BB, BQ, BK,
+}
+
 // define mapping between letter and column
 var letterToColumnIndex = map[string]int{
 	"A": 0,
@@ -109,7 +119,7 @@ func PrintBoard() {
 // 	fmt.Print(Y_coord_end)
 // }
 
-func makeMove(user string) {
+func makeMove(user string, color string) {
 
 	// ask the user what piece to move
 	fmt.Println("What piece would you like to move?")
@@ -127,6 +137,20 @@ func makeMove(user string) {
 	}
 	piece := board[rowCoord][columnCoord]
 	fmt.Println(piece)
+
+	// check if piece is OK colour
+
+	// if color == white {
+	// 	if !checkColor(whitePieces[:], piece) {
+	// 		fmt.Println("Wrong side! You're supposed to move %v...", color)
+	// 	}
+	// }
+
+	// if color == black {
+	// 	if !checkColor(blackPieces[:], piece) {
+	// 		fmt.Println("Wrong side! You're supposed to move %v...", color)
+	// 	}
+	// }
 
 	// ask the user where they would like to move it
 	fmt.Println("Where would you like to move it?")
@@ -150,6 +174,10 @@ func makeMove(user string) {
 
 }
 
+// func checkColor(arr []string, piece string) {
+// 	fmt.Println("hello")
+// }
+
 // TEMP: delete after
 var turns = 10
 
@@ -162,12 +190,12 @@ func main() {
 
 		// alternate making moves between players
 		if currTurn == userA {
-			makeMove(userA)
+			makeMove(userA, userAColour)
 			currTurn = userB
 		}
 
 		if currTurn == userB {
-			makeMove(userB)
+			makeMove(userB, userBColour)
 			currTurn = userA
 		}
 
