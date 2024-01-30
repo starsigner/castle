@@ -125,7 +125,7 @@ func makeMove(user string) {
 	if err == nil {
 		// do stuff
 	}
-	piece := board[columnCoord][rowCoord]
+	piece := board[rowCoord][columnCoord]
 	fmt.Println(piece)
 
 	// ask the user where they would like to move it
@@ -143,7 +143,7 @@ func makeMove(user string) {
 	}
 
 	// assuming valid move, move piece
-	board[columnCoord][rowCoord] = EM
+	board[rowCoord][columnCoord] = EM
 	board[rowCoord_move][columnCoord_move] = piece
 
 	PrintBoard()
